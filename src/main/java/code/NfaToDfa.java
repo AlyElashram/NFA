@@ -192,7 +192,9 @@ public class NfaToDfa {
 					}
 				}
 			}
+			Collections.sort(NFA);
 		}
+
 
 			print(NFA);
 
@@ -312,6 +314,7 @@ public void BuildDFA(String[] T,String[]A){
 }
 
 
+
 	public State addEpsilonClosure(State merged){
 		for(int i =0;i<merged.transitions.size();i++){
 			String[] trans = merged.transitions.get(i);
@@ -403,6 +406,7 @@ public void BuildDFA(String[] T,String[]A){
 		}
 
 	}
+	System.out.println(Q);
 
 
 	return Q+"#"+this.A+"#"+T.substring(0,T.length()-1)+"#"+I+"#"+F;
@@ -418,9 +422,8 @@ public void BuildDFA(String[] T,String[]A){
 
 	}
 	public static void main(String[]args){
-//		NfaToDfa nfa = new NfaToDfa("0;1;2;3;4;5;6;7;8;9;10;11;12#c;d;i;n#0,i,1;1,e,8;1,e,10;2,c,3;3,e,9;4,n,5;5,e,4;5,e,7;6,e,4;6,e,7;7,e,9;8,e,2;8,e,6;9,e,12;10,d,11;11,e,12#0#12");
-
-
+		NfaToDfa nfa = new NfaToDfa("0;1;2;3;4;5;6;7;8#m;z#0,m,4;0,m,1;0,m,6;0,m,3;0,z,2;0,z,4;0,z,6;0,z,8;1,m,5;1,m,0;1,m,1;1,m,6;1,z,3;1,z,5;1,z,0;1,z,4;1,z,6;1,z,2;1,z,1;2,m,3;2,m,5;2,m,1;2,m,6;2,z,3;2,z,1;2,z,0;2,z,6;3,m,6;3,m,8;3,m,0;3,m,1;3,z,4;3,z,6;3,z,7;3,z,1;4,m,2;4,m,4;4,m,8;4,m,5;4,m,6;4,z,0;4,z,7;4,z,4;4,z,2;4,z,1;4,z,5;4,z,3;5,m,0;5,m,6;5,m,8;5,m,4;5,m,7;5,m,5;5,m,3;5,z,2;5,z,1;5,z,4;5,z,0;5,z,5;6,m,4;6,m,0;6,m,8;6,m,2;6,m,6;6,m,3;6,z,1;6,z,5;6,z,0;6,z,3;7,m,3;7,m,2;7,m,0;7,m,7;7,z,5;7,z,7;7,z,1;7,z,3;8,m,7;8,m,1;8,m,4;8,m,0;8,z,7;8,z,4;8,z,8;8,z,5;8,z,6;8,z,2#3#2;4;7;8");
+		System.out.println(nfa.toString());
 	}
 
 
